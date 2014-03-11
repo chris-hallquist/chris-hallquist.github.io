@@ -1,0 +1,23 @@
+<h1>Annoying Little Brother</h1>
+<p>An unproductivity app</p>
+<script>
+function bugMeMaybe() {
+	if (Math.floor(Math.random() * 60) == 0) {
+		alert("Watcha doin?");
+	}
+}
+
+function approxIntervalSize() {
+	return msElapsed / 60000 / ticks;
+}
+
+var ticks = 0;
+var msElapsed = 0;
+var start = new Date();
+
+setInterval(function(){
+	bugMeMaybe();
+	ticks++;
+	msElapsed = new Date().getTime() - start.getTime(); 
+}, 60000);
+</script>
