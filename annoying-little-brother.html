@@ -3,7 +3,10 @@
 <script>
 function bugMeMaybe() {
 	if (Math.floor(Math.random() * 60) == 0) {
-		alert("Watcha doin?");
+		response = prompt("Whatcha doin'?");
+		if (response.toLowerCase == "working") {
+			working++;
+		}
 	}
 }
 
@@ -13,6 +16,7 @@ function approxIntervalSize() {
 
 var ticks = 0;
 var msElapsed = 0;
+var working = 0;
 var start = new Date();
 
 setInterval(function(){
