@@ -3,8 +3,8 @@
 <script>
 function bugMeMaybe() {
 	if (Math.floor(Math.random() * 60) == 0) {
-		response = prompt("Whatcha doin'?");
-		if (response.toLowerCase == "working") {
+		var response = prompt("Whatcha doin'?");
+		if (response.toLowerCase() == "working") {
 			working++;
 		}
 	}
