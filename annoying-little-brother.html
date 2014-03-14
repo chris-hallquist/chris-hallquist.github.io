@@ -1,23 +1,49 @@
 <h1>Annoying Little Brother</h1>
 <p>An unproductivity app</p>
 <script>
-var ticks = 0;
 var msElapsed = 0;
+var ticks = 0;
+
 var tasks = {}
+tasks.size = 0
+tasks.list = {}
+
+function approxIntervalSize() {
+	return msElapsed / 60000 / ticks;
+}
 
 function bugMeMaybe() {
 	if (Math.floor(Math.random() * 60) == 0) {
 		var response = prompt("Whatcha doin'?").replace(/,/g, "").toLowerCase();
-		if (tasks[response]) {
-			tasks[response]++;
+		if (tasks.list[response]) {
+			tasks.list[response]++;
 		} else {
-			tasks[response] = 1;
+			tasks.list[response] = 1;
+			tasks.size++
 		}
 	}
 }
 
-function approxIntervalSize() {
-	return msElapsed / 60000 / ticks;
+function summarize(tasks) {
+	if (tasks.size === 0) {
+		return "The annoying little brother hasn't bugged you yet.";
+	} else if (tasks.size === 1) {
+
+	} else {
+		
+	}
+}
+
+function taskToEnglish(n, task) {
+	return timeOrTimes(n) + " while you were " + task;
+}
+
+function timeOrTimes(n) {
+	if (n === 1) {
+		return "1 time";
+	} else {
+		return n + " times";
+	}
 }
 
 var start = new Date();
