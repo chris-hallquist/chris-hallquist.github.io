@@ -1,11 +1,17 @@
 <h1>Annoying Little Brother</h1>
 <p>An unproductivity app</p>
 <script>
+var ticks = 0;
+var msElapsed = 0;
+var tasks = {}
+
 function bugMeMaybe() {
 	if (Math.floor(Math.random() * 60) == 0) {
-		var response = prompt("Whatcha doin'?");
-		if (response.toLowerCase() == "working") {
-			working++;
+		var response = prompt("Whatcha doin'?").replace(/,/g, "").toLowerCase();
+		if (tasks[response]) {
+			tasks[response]++;
+		} else {
+			tasks[response] = 1;
 		}
 	}
 }
@@ -14,9 +20,6 @@ function approxIntervalSize() {
 	return msElapsed / 60000 / ticks;
 }
 
-var ticks = 0;
-var msElapsed = 0;
-var working = 0;
 var start = new Date();
 
 setInterval(function(){
