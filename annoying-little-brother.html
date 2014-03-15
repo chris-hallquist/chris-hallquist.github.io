@@ -25,16 +25,37 @@ function bugMeMaybe() {
 }
 
 function summarize(tasks) {
+	var list = tasks.list
 	if (tasks.size === 0) {
 		return "The annoying little brother hasn't bugged you yet.";
-	} else if (tasks.size === 1) {
-
 	} else {
-		
+		var sentence = "The annoying little brother has bugged you ";
+		var listArray = taskListToArray(list);
+		if (tasks.size === 1) {
+			sentence += (taskToEnglish(listArray[0], list[listArray[0]]) + ".");
+		} else {
+			var last = listArray.length - 1
+			for (var i = 0; i < last; i++) {
+				sentence += (taskToEnglish(listArray[i], list[listArray[i]]) + ", ");
+			}
+			i = 
+			sentence += "and " (
+			sentence += (taskToEnglish(listArray[last], list[listArray[last]]) + ".")
+		}
+		return sentence
 	}
+	
 }
 
-function taskToEnglish(n, task) {
+function taskListToArray(list) {
+	result = []
+	for (var item in list) {
+		result.push(item);
+	}
+	return result;
+}
+
+function taskToEnglish(task, n) {
 	return timeOrTimes(n) + " while you were " + task;
 }
 
