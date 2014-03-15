@@ -38,13 +38,11 @@ function summarize(tasks) {
 			for (var i = 0; i < last; i++) {
 				sentence += (taskToEnglish(listArray[i], list[listArray[i]]) + ", ");
 			}
-			i = 
-			sentence += "and " (
-			sentence += (taskToEnglish(listArray[last], list[listArray[last]]) + ".")
+			sentence += "and "
+			sentence += (taskToEnglish(listArray[last], list[listArray[last]]) + ".");
 		}
-		return sentence
+		return sentence;
 	}
-	
 }
 
 function taskListToArray(list) {
