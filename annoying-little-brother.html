@@ -1,5 +1,6 @@
 <h1>Annoying Little Brother</h1>
 <p>An unproductivity app</p>
+<p class="message"></p>
 <script>
 var msElapsed = 0;
 var ticks = 0;
@@ -64,6 +65,8 @@ function timeOrTimes(n) {
 		return n + " times";
 	}
 }
+
+$('.message').html(summarize(tasks));
 
 var start = new Date();
 
