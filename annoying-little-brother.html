@@ -16,7 +16,7 @@ function approxIntervalSize() {
 
 function bugMeMaybe() {
 	if (Math.floor(Math.random() * 60) == 0) {
-		var response = prompt("Whatcha doin'?").replace(/,/g, "").toLowerCase();
+		var response = prompt("Whatcha doin'?");
 		if (tasks.list[response]) {
 			tasks.list[response]++;
 		} else {
