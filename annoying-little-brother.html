@@ -1,6 +1,7 @@
 <h1>Annoying Little Brother</h1>
 <p>An unproductivity app</p>
 <p class="message"></p>
+<script src="jquery-1.9.1.js"></script>
 <script>
 var msElapsed = 0;
 var ticks = 0;
@@ -22,7 +23,12 @@ function bugMeMaybe() {
 			tasks.list[response] = 1;
 			tasks.size++
 		}
+		replaceMessage();
 	}
+}
+
+function replaceMessage() {
+	$('.message').html('<p class="message">' + summarize(tasks) + '</p>');
 }
 
 function summarize(tasks) {
@@ -66,7 +72,7 @@ function timeOrTimes(n) {
 	}
 }
 
-$('.message').html(summarize(tasks));
+replaceMessage();
 
 var start = new Date();
 
