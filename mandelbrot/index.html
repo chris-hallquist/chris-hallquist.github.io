@@ -1,15 +1,25 @@
 <p>Click and drag to zoom in</p>
 <button>Zoom Out</button>
 <canvas height="400" width="600" style="border:1px solid #000000;">
-<script src="math.min.js">
-	var math = mathjs();
-</script>
-<script type="application/javascript">
+<script>
+	function Complex(a, b) {
+		var a = a;
+		var b = b;
+		
+		function add(addend) {
+			return new Complex(a + addend.a, b + addend.b)
+		}
+		
+		function square(complex) {
+			return new Complex(a * a - b * b, 2 * a * b)
+		}
+	}
 	var startRegion = {
 		xMin: -2,
 		xMax: 1,
 		yMin: -1,
 		yMax: 1
 	};
-	var regionHistory = [startWindow];
+</script>
+<script type="application/javascript">
 </script>
