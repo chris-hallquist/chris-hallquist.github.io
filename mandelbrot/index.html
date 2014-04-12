@@ -1,13 +1,32 @@
-<p>Click and drag to zoom in</p>
-<button>Zoom Out</button>
-<canvas height="400" width="600" style="border:1px solid #000000;">
+<!DOCTYPE HTML>
+<html>
+<body>
+<canvas height="400" width="600"></canvas>
 <script>
+	var canvas = document.getElementsByTagName("canvas")[0];
+	var context = canvas.getContext('2d'); 
+	
 	function Complex(a, b) {
 		this.a = a;
 		this.b = b;
 		
+		this.abs = function() {
+			return Math.sqrt(a * a + b * b);
+		}
+		
 		this.add = function(addend) {
-			return new Complex(a + addend.a, b + addend.b)
+			return new Complex(a + addend.a, b + addend.b);
+		}
+		
+		this.mandelbrot = function() {
+			z = new Complex(0, 0)
+			for (var i = 0; i < 50; i++) {
+				z = z.mandelbrotStep(this);
+				if (z.abs() > 2) {
+					return false;
+				}
+			}
+			return true;
 		}
 		
 		this.mandelbrotStep = function(c) {
@@ -15,15 +34,30 @@
 		}
 		
 		this.square = function() {
-			return new Complex(a * a - b * b, 2 * a * b)
+			return new Complex(a * a - b * b, 2 * a * b);
 		}
 	}
+	
 	var startRegion = {
 		xMin: -2,
 		xMax: 1,
 		yMin: -1,
 		yMax: 1
 	};
+	
+	var height = 400;
+	var width = 600;
+	
+	for (var x = 0; x < 600; x++) {
+		for (var y = 0; y < 400; y++) {
+			if (new Complex(x / 200 - 2, y / 200 - 1).mandelbrot()) {
+				context.fillStyle = "black"; 
+			} else {
+				context.fillStyle = "red";
+			}
+			context.fillRect(x,y,x,y);
+		}
+	}
 </script>
-<script type="application/javascript">
-</script>
+</body>
+</html>
