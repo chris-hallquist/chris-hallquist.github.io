@@ -3,14 +3,18 @@
 <canvas height="400" width="600" style="border:1px solid #000000;">
 <script>
 	function Complex(a, b) {
-		var a = a;
-		var b = b;
+		this.a = a;
+		this.b = b;
 		
-		function add(addend) {
+		this.add = function(addend) {
 			return new Complex(a + addend.a, b + addend.b)
 		}
 		
-		function square(complex) {
+		this.mandelbrotStep = function(c) {
+			return this.square().add(c);
+		}
+		
+		this.square = function() {
 			return new Complex(a * a - b * b, 2 * a * b)
 		}
 	}
