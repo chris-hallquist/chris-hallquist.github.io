@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <body>
-<canvas height="400" width="600"></canvas>
+<canvas></canvas>
 <script>
 	var canvas = document.getElementsByTagName("canvas")[0];
 	var context = canvas.getContext('2d'); 
@@ -45,6 +45,9 @@
 	
 	var height = 600;
 	var width = 900;
+	
+	canvas.setAttribute("height", height.toString);
+	canvas.setAttribute("width", width.toString);
 	
 	function scaleX(x) {
 		return x * (xMax - xMin) / width + xMin;
