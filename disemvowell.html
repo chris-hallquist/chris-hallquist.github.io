@@ -1,0 +1,19 @@
+<!Doctype html>
+
+<textarea></textarea><br />
+<button>Disemvowell</button>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>
+$("button").click(function(){
+	var original = $("textarea").val();
+	var newString = '';
+	var vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
+	for (var i = 0; i < original.length; i++){
+		if (vowels.indexOf(original[i]) === -1){
+			newString += original[i];
+		}
+	}
+	$("textarea").val(newString);
+});
+</script>
